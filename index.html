@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Click Dummy</title>
+    <script defer src="form.js"></script>
+    <style>
+      select, input {
+        width:100px;
+      }
+      #submit_btn {
+        width:120px;
+      }
+    </style>
+</head>
+<body>
+
+<!-- 
+  - zwei Lager : DE und CH
+  -   Steuersätze der Länder DE-DE= 19%, 
+      CH-CH 7,7%; 
+      für Innerhalb der EU und in Richtung der USA gelten 0%
+  - Kunden innerhalb der EU gesondert markieren!
+
+  - Lager + Kunde + Brutto oder Netto => Ausgabe des jeweiligen anderen Betrags plus Steuersatz
+
+  - Erstellen einer Tabelle 
+  - Eingabefelder für Lager, Kunde und Netto, Brutto
+
+  - Überprüfen ob Netto oder Brutto eingegeben wurde
+
+  - überprüfen ob nicht EU Land   -> EU Länder in ein Array
+
+ -->
+
+    <div id="wrapper">
+      <p><b>Bitte Lager und Kunde wählen und Netto- oder Bruttobetrag ausfüllen.</b></p>
+      <form method="GET" action="#" id="form" name="form">
+        <table>
+          <tr>
+            <th>Lager</th>
+            <th>Kunde</th>
+            <th>Netto in €</th>
+            <th>Steuersatz</th>
+            <th>Brutto in €</th>
+            <th>Markierung</th>
+          </tr>
+          <tr>
+            <th>
+              <select name="storage" id="storage">
+                <option value="DE">DE</option>
+                <option value="CH">CH</option>
+              </select>
+            </th>
+            <th>
+              <select name="customer" id="customer">
+                <option>DE</option>
+                <option value="CH">CH</option>
+                <option value="FR">FR</option>
+                <option value="US">US</option>
+              </select>
+            </th>
+            <th>
+              <input type="text" id="netto" value="">
+            </th>
+            <th>
+              <input type="text" id="tax" value="" disabled>
+            </th>
+            <th>
+              <input type="text" id="brutto" value="">
+            </th>
+            <th>
+              <input type="text" id="marked" value="" disabled>
+            </th>
+          </tr>  
+      </table>
+      <input type="submit" id="submit_btn" name="submit_btn" value="Daten ermitteln">
+    </form>
+    </div>
+</body>
+</html>
